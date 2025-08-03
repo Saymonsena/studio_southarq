@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Arquitetura - Especialistas em PPCI e Projetos Arquitetônicos</title>
+    <meta name="description" content="South Arquitetura - Especialistas em engenharia contra incêndio e pânico, projetos arquitetônicos e design de interiores. Atendimento personalizado e avaliação gratuita.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #2E7D32;
+            --secondary-green: #4CAF50;
+            --light-green: #E8F5E8;
+            --dark-gray: #2C2C2C;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-green);
+        }
+
+        .cta-button {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-green);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .feature-item i {
+            color: var(--primary-green);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-green);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--light-green);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .benefit-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+        }
+
+        /* Instagram Section */
+        .instagram {
+            background: var(--white);
+        }
+
+        .instagram-content {
+            text-align: center;
+        }
+
+        .instagram-feed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .instagram-post {
+            aspect-ratio: 1;
+            background: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-post:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark-gray);
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-green);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-green);
+            width: 30px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-dark);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-green);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">SOUTH ARQUITETURA</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="cta-button">Avaliação Gratuita</a>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sua segurança e design em primeiro lugar</h1>
+                <p>Especialistas em PPCI e projetos arquitetônicos personalizados. Solicite uma avaliação gratuita!</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn-primary">
+                        <i class="fas fa-phone"></i>
+                        Avaliação Gratuita
+                    </a>
+                    <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre a South Arquitetura</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Especialistas em Segurança e Design</h3>
+                    <p>A South Arquitetura é uma empresa especializada em engenharia contra incêndio e pânico, projetos arquitetônicos e design de interiores. Nossa missão é oferecer soluções completas que combinam segurança, funcionalidade e estética.</p>
+                    <p>Com anos de experiência no mercado, atendemos empresas, construtoras, arquitetos e clientes que buscam projetos de qualidade com atendimento personalizado.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Projetos Aprovados</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Atendimento Personalizado</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Expertise Comprovada</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Avaliação Gratuita</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div style="width: 100%; height: 400px; background: var(--light-green); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary-green); font-size: 4rem;">
+                        <i class="fas fa-building"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3>Projetos de Prevenção e Combate a Incêndio</h3>
+                    <p>Elaboração de projetos PPCI, aprovação junto ao Corpo de Bombeiros e laudos técnicos especializados.</p>
+                    <a href="#contato" class="cta-button">Saiba Mais</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Projetos Arquitetônicos</h3>
+                    <p>Projetos residenciais e comerciais completos, com acompanhamento de obra e consultoria especializada.</p>
+                    <a href="#contato" class="cta-button">Saiba Mais</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Design de Interiores</h3>
+                    <p>Projetos de ambientes internos, especificação de materiais e consultoria em decoração personalizada.</p>
+                    <a href="#contato" class="cta-button">Saiba Mais</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Consultoria Especializada</h3>
+                    <p>Assessoria técnica, análise de conformidade e treinamentos em segurança contra incêndio.</p>
+                    <a href="#contato" class="cta-button">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Por que escolher a South Arquitetura?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h4>Avaliação Gratuita</h4>
+                    <p>Análise inicial sem custo para entender suas necessidades</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Atendimento Personalizado</h4>
+                    <p>Cada projeto é único e recebe atenção individual</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Expertise Dupla</h4>
+                    <p>PPCI + Arquitetura e Interiores em um só lugar</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4>Aprovação Garantida</h4>
+                    <p>Conhecimento profundo das normas e regulamentações</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Proteção Completa</h4>
+                    <p>Patrimônio e vidas em segurança com nossos projetos</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Inovação</h4>
+                    <p>Soluções criativas e tecnológicas para cada desafio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="projetos" class="instagram">
+        <div class="container">
+            <h2 class="section-title">Acompanhe nossos projetos no Instagram</h2>
+            <div class="instagram-content">
+                <p>Veja nossos projetos mais recentes e acompanhe o dia a dia da South Arquitetura</p>
+                <div class="instagram-feed">
+                    <div class="instagram-post">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-post">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-post">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-post">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-post">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-post">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <a href="https://www.instagram.com/south.arquitetura" target="_blank" class="cta-button">
+                    <i class="fab fa-instagram"></i>
+                    Seguir @south.arquitetura
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Entre em Contato</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <p>Entre em contato para solicitar sua avaliação gratuita ou tirar suas dúvidas sobre nossos serviços.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Telefone</strong><br>
+                            (48) 99968-8404
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>E-mail</strong><br>
+                            contato.southarq@outlook.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <strong>Instagram</strong><br>
+                            @south.arquitetura
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>Website</strong><br>
+                            studiosouth.arq.br
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Solicite sua Avaliação Gratuita</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="servico">Serviço de Interesse</label>
+                            <select id="servico" name="servico" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.9); color: var(--text-dark);">
+                                <option value="">Selecione um serviço</option>
+                                <option value="ppci">Projeto de Prevenção e Combate a Incêndio</option>
+                                <option value="arquitetura">Projeto Arquitetônico</option>
+                                <option value="interiores">Design de Interiores</option>
+                                <option value="consultoria">Consultoria Especializada</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Conte-nos sobre seu projeto..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Solicitação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2025 South Arquitetura. Todos os direitos reservados.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/south.arquitetura" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:contato.southarq@outlook.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+5548999688404">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--white)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for fade in effect
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create WhatsApp message
+            const message = `Olá! Gostaria de solicitar uma avaliação gratuita.
+
+*Nome:* ${data.nome}
+*E-mail:* ${data.email}
+*Telefone:* ${data.telefone}
+*Serviço:* ${data.servico}
+*Mensagem:* ${data.mensagem}`;
+            
+            // Open WhatsApp
+            const whatsappUrl = `https://wa.me/5548999688404?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            alert('Redirecionando para o WhatsApp...');
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
+
